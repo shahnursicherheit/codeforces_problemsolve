@@ -1,0 +1,59 @@
+// it is my own code 
+// in CodeForces 
+//problem name - amusing jock
+//problem link 
+//https://codeforces.com/problemset/problem/141/A
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    string g,h,p,merge;
+    cin>>g>>h>>p;
+    int a,b,c;
+    a=g.length();
+    b=h.length();
+    c=p.length();
+    merge=g+h;
+    int m=merge.length();
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            if(merge[i]==p[j])
+            {
+                m--;
+                c--;
+                int ma=max(m,c);
+                int q=i;
+                int t=j;
+                for(int r=0;r<ma;r++)
+                {
+                    if(q<m)
+                    {
+                        merge[q]=merge[q+1];
+                        q++;
+                    }
+                    if(t<c)
+                    {
+                        p[t]=p[t+1];
+                        t++;
+                    }
+                }
+                i=-1;
+                j=c;
+            }
+        }
+    }
+    if(m==0&&c==0)
+    {
+        cout<<"YES\n";
+    }
+    else
+    cout<<"NO\n";
+
+
+    return 0;
+}
